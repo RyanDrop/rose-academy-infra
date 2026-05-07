@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: rose-academy
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: rose-academy
+
+  template:
+    metadata:
+      labels:
+        app: rose-academy
+
+    spec:
+      containers:
+        - name: api
+
+          image: ghcr.io/ryandrop/rose-academy:latest
+
+          imagePullPolicy: Always
+
+          ports:
+            - containerPort: 8080
+
+          env:
+            - name: DB_HOST
+              value: "192.168.10.97"
+
+            - name: DB_PORT
+              value: "5432"
+
+            - name: DB_USER
+              value: "drop"
+
+            - name: DB_PASSWORD
+              value: "Drop7509#"
+
+            - name: DB_NAME
+              value: "rose_gym"
+
+            - name: DB_SSLMODE
+              value: "disable"
+
+            - name: ABACATE_PAY_API_KEY
+              value: "abc_dev_huAhHrC1Cu2BbcENCUhtdkwg"
+
+            - name: ABACATE_PAY_WEBHOOK_SECRET
+              value: "abc_wh_secret_dev_4kmZrZDXWB3qNej6JbbmYu5R"
+
+            - name: ABACATE_PAY_METHODS
+              value: "PIX,CARD"
+
+            - name: PORT
+              value: "8080"
+
+            - name: ENV
+              value: "production"
+
+            - name: JWT_SECRET
+              value: "10Wfqb75eVjWhF8cJWfmC6blE6sRbqiIsVSeopUO43F"
+
+            - name: JWT_EXPIRATION_HOURS
+              value: "72"
