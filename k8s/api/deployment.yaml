@@ -36,13 +36,13 @@ spec:
               value: "5432"
 
             - name: DB_USER
-              value: "drop"
+              value: "admin"
 
             - name: DB_PASSWORD
-              value: "Drop7509#"
+              value: "password"
 
             - name: DB_NAME
-              value: "rose_gym"
+              value: "rose_gym_db"
 
             - name: DB_SSLMODE
               value: "disable"
