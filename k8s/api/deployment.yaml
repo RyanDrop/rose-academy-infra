@@ -17,9 +17,10 @@ spec:
         app: rose-academy
 
     spec:
+      imagePullSecrets:
+        - name: ghcr-secret
       containers:
         - name: api
-
           image: ghcr.io/ryandrop/rose-academy:latest
 
           imagePullPolicy: Always
