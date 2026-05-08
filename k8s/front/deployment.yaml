@@ -18,6 +18,8 @@ spec:
         app: rose-academy-front
 
     spec:
+      imagePullSecrets:
+        - name: ghcr-secret
       containers:
         - name: front
 
