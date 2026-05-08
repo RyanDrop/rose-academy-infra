@@ -3,6 +3,7 @@ kind: Service
 
 metadata:
   name: rose-academy-service
+  namespace: default
 
 spec:
   selector:

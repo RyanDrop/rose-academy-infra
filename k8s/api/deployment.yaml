@@ -3,6 +3,7 @@ kind: Deployment
 
 metadata:
   name: rose-academy
+  namespace: default
 
 spec:
   replicas: 1

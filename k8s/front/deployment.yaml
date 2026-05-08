@@ -1,31 +1,29 @@
-name: Build and Publish Frontend
+apiVersion: apps/v1
+kind: Deployment
 
-on:
-  push:
-    branches:
-      - main
+metadata:
+  name: rose-academy-front
+  namespace: default
 
-jobs:
-  docker:
-    runs-on: ubuntu-latest
+spec:
+  replicas: 1
 
-    permissions:
-      contents: read
-      packages: write
+  selector:
+    matchLabels:
+      app: rose-academy-front
 
-    steps:
-      - uses: actions/checkout@v4
+  template:
+    metadata:
+      labels:
+        app: rose-academy-front
 
-      - name: Login to GHCR
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+    spec:
+      containers:
+        - name: front
 
-      - name: Build and Push
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          push: true
-          tags: ghcr.io/ryandrop/rose-academy-front:latest
+          image: ghcr.io/ryandrop/rose-academy-front:latest
+
+          imagePullPolicy: Always
+
+          ports:
+            - containerPort: 3000
