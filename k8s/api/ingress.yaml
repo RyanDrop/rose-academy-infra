@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+
+metadata:
+  name: rose-academy-api-ingress
+  namespace: default
+
+spec:
+  ingressClassName: traefik
+
+  rules:
+    - host: api.rosinascimento-personal.com.br
+
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+
+            backend:
+              service:
+                name: rose-academy-service
+
+                port:
+                  number: 80
