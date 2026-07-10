@@ -20,6 +20,10 @@ spec:
     spec:
       imagePullSecrets:
         - name: ghcr-secret
+      hostAliases:
+        - ip: "172.16.0.1"
+          hostnames:
+            - "docker-host"
       containers:
         - name: api
           image: ghcr.io/ryandrop/rose-academy:latest
@@ -31,19 +35,19 @@ spec:
 
           env:
             - name: DB_HOST
-              value: "192.168.10.97"
+              value: "docker-host"
 
             - name: DB_PORT
               value: "5432"
 
             - name: DB_USER
-              value: "admin"
+              value: "rose_user"
 
             - name: DB_PASSWORD
-              value: "password"
+              value: "99RyanDrop#7509"
 
             - name: DB_NAME
-              value: "rose_gym_db"
+              value: "rose_db"
 
             - name: DB_SSLMODE
               value: "disable"
