@@ -1,0 +1,39 @@
+# Kubernetes / Infrastructure
+
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+**/secret*.yaml
+**/secret*.yml
+!**/secret*.example.yaml
+
+# Terraform
+*.tfvars
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# Helm
+**/charts/*.tgz
+
+# Kubeconfig
+kubeconfig
+kubeconfig.yaml
+*.kubeconfig
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
